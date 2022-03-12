@@ -1,0 +1,22 @@
+[package]
+name = "prof-rs"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = [ "cpu", "jemalloc" ]
+cpu = [ "pprof" ]
+jemalloc = [ "jemalloc-ctl" ]
+
+[dependencies]
+anyhow = { version = "1.0.0" }
+jemalloc-ctl = { version = "0.3.3", features = ["use_std"], optional = true }
+pprof = { version = "0.6.0", features = ["flamegraph"], optional = true }
+lazy_static = "1.0.4"
+parking_lot = "0.12.0"
+chrono = "0.4.19"
+warp = "0.3"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+jemallocator = { version = "0.3", features = ["profiling"] }
