@@ -12,7 +12,7 @@ pub mod http_server {
         let help = format!("curl localhost:{}/help\r\n", port);
 
         #[cfg(feature = "cpu")]
-            let help = format!(
+        let help = format!(
             "{}{}",
             help,
             [
@@ -20,11 +20,11 @@ pub mod http_server {
                 format!("curl localhost:{}/cpu/dump", port),
                 format!("curl localhost:{}/cpu/deactive\r\n", port),
             ]
-                .join("\r\n")
+            .join("\r\n")
         );
 
         #[cfg(feature = "jemalloc")]
-            let help = format!(
+        let help = format!(
             "{}{}",
             help,
             [
@@ -32,7 +32,7 @@ pub mod http_server {
                 format!("curl localhost:{}/mem/dump", port),
                 format!("curl localhost:{}/mem/deactive\r\n", port),
             ]
-                .join("\r\n")
+            .join("\r\n")
         );
         help
     }
