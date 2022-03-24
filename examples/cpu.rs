@@ -3,16 +3,17 @@ use std::collections::HashMap;
 use std::time::Duration;
 
 fn main() {
-    let _ = active(100);
+    let _ = active(1000);
     let mut map = HashMap::new();
-    for i in 0..10000 {
+    for i in 0..1000 {
         map.insert(i, i);
+        println!("insert key = {}, val = {}", i, i);
         std::thread::sleep(Duration::from_millis(1));
     }
-    for i in 0..10000 {
+    for i in 0..1000 {
         let val = map.get(&i);
-        println!("{:?}", val);
+        println!("when key = {}, get val = {:?}", i, val);
     }
-    dump("cpu");
+    let _ = dump("cpu");
     let _ = deactive();
 }
